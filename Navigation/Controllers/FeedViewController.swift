@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
         feedButton.setTitleColor(.blue, for: .normal)
         feedButton.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
         self.view.addSubview(feedButton)
-//        Констрейны
+        //        Констрейны
         feedButton.translatesAutoresizingMaskIntoConstraints = false
         let bottomAnchor = feedButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
         let leftAnchor = feedButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40)
@@ -32,7 +32,7 @@ class FeedViewController: UIViewController {
         
     }
 
-    @IBAction func pressFeedButtom(_ sender:Any) {
+    @objc func pressFeedButtom(_ sender:Any) {
         navigationController?.pushViewController( PostViewController(), animated: true)
     }
 }

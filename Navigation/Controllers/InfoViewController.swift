@@ -32,8 +32,8 @@ class InfoViewController: UIViewController {
 
     }
     
-    @IBAction func pressAlertButtom(_ sender:Any) {
-       let pressAlertButtom = UIAlertController(title: "Alert", message: "Внимание", preferredStyle: .alert)
+    @objc func pressAlertButtom(_ sender:Any) {
+        let pressAlertButtom = UIAlertController(title: "Alert", message: "Внимание", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: {_ in print("Отмена")})
         pressAlertButtom.addAction(cancelAction)
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive, handler: {_ in print("Удалить")})

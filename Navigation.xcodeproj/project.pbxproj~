@@ -11,12 +11,20 @@
 		6E030B0B27CBFCFC004609EE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B0A27CBFCFC004609EE /* MainTabBarController.swift */; };
 		6E030B1027CBFD01004609EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E030B0F27CBFD01004609EE /* Assets.xcassets */; };
 		6E030B1327CBFD01004609EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E030B1127CBFD01004609EE /* LaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		6E030B3827DDE266004609EE /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B3727DDE266004609EE /* ProfileHeaderView.swift */; };
 		6E1852FF27DDE65900A8EA39 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1852FB27DDE65900A8EA39 /* ProfileViewController.swift */; };
 		6E18530027DDE65900A8EA39 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1852FC27DDE65900A8EA39 /* PostViewController.swift */; };
 		6E18530127DDE65900A8EA39 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1852FD27DDE65900A8EA39 /* FeedViewController.swift */; };
 		6E18530227DDE65900A8EA39 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1852FE27DDE65900A8EA39 /* InfoViewController.swift */; };
 		6E18530427DDE66B00A8EA39 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E18530327DDE66B00A8EA39 /* Post.swift */; };
+=======
+		6E030B2027D11F6E004609EE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B1F27D11F6E004609EE /* FeedViewController.swift */; };
+		6E030B2227D11FCE004609EE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B2127D11FCE004609EE /* ProfileViewController.swift */; };
+		6E030B2427D1336C004609EE /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B2327D1336C004609EE /* PostViewController.swift */; };
+		6E030B2627D149CB004609EE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B2527D149CB004609EE /* Post.swift */; };
+		6E030B2827D14CB0004609EE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E030B2727D14CB0004609EE /* InfoViewController.swift */; };
+>>>>>>> develop-iosUI
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +34,20 @@
 		6E030B0F27CBFD01004609EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E030B1227CBFD01004609EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E030B1427CBFD01004609EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		6E030B3727DDE266004609EE /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		6E1852FB27DDE65900A8EA39 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6E1852FC27DDE65900A8EA39 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		6E1852FD27DDE65900A8EA39 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		6E1852FE27DDE65900A8EA39 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		6E18530327DDE66B00A8EA39 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+=======
+		6E030B1F27D11F6E004609EE /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		6E030B2127D11FCE004609EE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6E030B2327D1336C004609EE /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		6E030B2527D149CB004609EE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		6E030B2727D14CB0004609EE /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+>>>>>>> develop-iosUI
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,15 +80,25 @@
 		6E030B0527CBFCFC004609EE /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				6E030B3627DDE23E004609EE /* Profile */,
 				6E030B2927DDDE7A004609EE /* Application */,
 				6E030B2A27DDDE9E004609EE /* Controllers */,
 				6E030B2B27DDDEB8004609EE /* Resourses */,
+=======
+				6E030B1C27D11DED004609EE /* Application */,
+				6E030B1D27D11E1E004609EE /* Controllers */,
+				6E030B1E27D11E4A004609EE /* Resourses */,
+>>>>>>> develop-iosUI
 			);
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		6E030B2927DDDE7A004609EE /* Application */ = {
+=======
+		6E030B1C27D11DED004609EE /* Application */ = {
+>>>>>>> develop-iosUI
 			isa = PBXGroup;
 			children = (
 				6E030B0627CBFCFC004609EE /* AppDelegate.swift */,
@@ -80,6 +106,7 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		6E030B2A27DDDE9E004609EE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,19 +114,38 @@
 				6E1852FD27DDE65900A8EA39 /* FeedViewController.swift */,
 				6E1852FE27DDE65900A8EA39 /* InfoViewController.swift */,
 				6E1852FC27DDE65900A8EA39 /* PostViewController.swift */,
+=======
+		6E030B1D27D11E1E004609EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E030B0A27CBFCFC004609EE /* MainTabBarController.swift */,
+				6E030B1F27D11F6E004609EE /* FeedViewController.swift */,
+				6E030B2127D11FCE004609EE /* ProfileViewController.swift */,
+				6E030B2327D1336C004609EE /* PostViewController.swift */,
+				6E030B2727D14CB0004609EE /* InfoViewController.swift */,
+>>>>>>> develop-iosUI
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		6E030B2B27DDDEB8004609EE /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+=======
+		6E030B1E27D11E4A004609EE /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				6E030B2527D149CB004609EE /* Post.swift */,
+				6E030B0F27CBFD01004609EE /* Assets.xcassets */,
+>>>>>>> develop-iosUI
 				6E030B1127CBFD01004609EE /* LaunchScreen.storyboard */,
 				6E030B1427CBFD01004609EE /* Info.plist */,
 				6E18530327DDE66B00A8EA39 /* Post.swift */,
 				6E030B0F27CBFD01004609EE /* Assets.xcassets */,
 			);
 			path = Resourses;
+<<<<<<< HEAD
 			sourceTree = "<group>";
 		};
 		6E030B3627DDE23E004609EE /* Profile */ = {
@@ -109,6 +155,8 @@
 				6E1852FB27DDE65900A8EA39 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+=======
+>>>>>>> develop-iosUI
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				6E18530027DDE65900A8EA39 /* PostViewController.swift in Sources */,
 				6E030B0B27CBFCFC004609EE /* MainTabBarController.swift in Sources */,
 				6E1852FF27DDE65900A8EA39 /* ProfileViewController.swift in Sources */,
@@ -188,6 +237,15 @@
 				6E18530427DDE66B00A8EA39 /* Post.swift in Sources */,
 				6E18530227DDE65900A8EA39 /* InfoViewController.swift in Sources */,
 				6E18530127DDE65900A8EA39 /* FeedViewController.swift in Sources */,
+=======
+				6E030B0B27CBFCFC004609EE /* MainTabBarController.swift in Sources */,
+				6E030B0727CBFCFC004609EE /* AppDelegate.swift in Sources */,
+				6E030B2227D11FCE004609EE /* ProfileViewController.swift in Sources */,
+				6E030B2827D14CB0004609EE /* InfoViewController.swift in Sources */,
+				6E030B2627D149CB004609EE /* Post.swift in Sources */,
+				6E030B2027D11F6E004609EE /* FeedViewController.swift in Sources */,
+				6E030B2427D1336C004609EE /* PostViewController.swift in Sources */,
+>>>>>>> develop-iosUI
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
