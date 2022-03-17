@@ -13,27 +13,54 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Feed"
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
-        let feedButton = UIButton(frame: CGRect(x: 0, y: 0, width: screenWidth - 20, height: screenHeight / 9))
-        feedButton.layer.cornerRadius = 10
-        feedButton.layer.borderWidth = 1
-        feedButton.setTitle(newPost.title, for: .normal)
-        feedButton.setTitleColor(.blue, for: .normal)
-        feedButton.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
-        self.view.addSubview(feedButton)
-        //        Констрейны
-        feedButton.translatesAutoresizingMaskIntoConstraints = false
-        let bottomAnchor = feedButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
-        let leftAnchor = feedButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40)
-        let rightAnchor = feedButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40)
-
-        NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor])
-        
+        layoutSubviews()
     }
+
+    let postsStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.spacing = 10
+        return stack
+    }()
+
+    let postButton1: UIButton = {
+        let buttom = UIButton()
+        buttom.backgroundColor = .systemGray4
+        buttom.layer.cornerRadius = 10
+        buttom.layer.borderWidth = 1
+        buttom.setTitle(newPost.title + " 1", for: .normal)
+        buttom.setTitleColor(.black, for: .normal)
+        buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
+        return buttom
+    }()
+
+    let postButton2: UIButton = {
+        let buttom = UIButton()
+        buttom.backgroundColor = .systemGray4
+        buttom.layer.cornerRadius = 10
+        buttom.layer.borderWidth = 1
+        buttom.setTitle(newPost.title + " 2", for: .normal)
+        buttom.setTitleColor(.black, for: .normal)
+        buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
+        return buttom
+    }()
 
     @objc func pressFeedButtom(_ sender:Any) {
         navigationController?.pushViewController( PostViewController(), animated: true)
+    }
+
+    private func layoutSubviews(){
+        view.addSubview(postsStack)
+        postsStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            postsStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            postsStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            postsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            postsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+        postsStack.addArrangedSubview(postButton1)
+        postsStack.addArrangedSubview(postButton2)
     }
 }
 

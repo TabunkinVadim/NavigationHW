@@ -53,6 +53,7 @@ class ProfileHeaderView: UIView {
         buttom.addTarget(self, action: #selector(pressStatusButtom), for: .touchUpInside)
         return buttom
     }()
+
     @objc func pressStatusButtom(_ sender:Any) {
         status.text = statusText
         print(status.text ?? "Статус отсутствует")
@@ -93,6 +94,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(status)
         self.addSubview(statusSet)
     }
+
     func setupConstraints () {
         avatar.translatesAutoresizingMaskIntoConstraints = false
         name.translatesAutoresizingMaskIntoConstraints = false
@@ -124,6 +126,5 @@ class ProfileHeaderView: UIView {
             statusSet.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-
 }
 
