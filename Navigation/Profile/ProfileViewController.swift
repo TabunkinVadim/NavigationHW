@@ -42,6 +42,11 @@ class ProfileViewController: UIViewController {
         let buttom = UIButton()
         buttom.setTitle("Выйти", for: .normal)
         buttom.backgroundColor = .link
+        buttom.addTarget(self, action: #selector(pressLogOutButtom), for: .touchUpInside)
         return buttom
     }()
+
+    @objc func pressLogOutButtom(_ sender:Any) {
+        navigationController?.pushViewController( LogInViewController(), animated: true)
+    }
 }

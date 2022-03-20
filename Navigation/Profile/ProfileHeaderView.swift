@@ -67,7 +67,7 @@ class ProfileHeaderView: UIView {
         return lable
     }()
 
-    let statusSet: UITextField = {
+    lazy var statusSet: UITextField = {
         let field = UITextField()
         field.font = UIFont.systemFont(ofSize: 15)
         field.textColor = .black
@@ -79,6 +79,7 @@ class ProfileHeaderView: UIView {
         field.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: field.frame.height))
         field.leftViewMode = .always
         field.rightViewMode = .always
+        field.delegate = self
         field.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         return field
     }()
@@ -127,4 +128,10 @@ class ProfileHeaderView: UIView {
         ])
     }
 }
-
+extension ProfileHeaderView: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        pressStatusButtom(endEditing(true))
+        return true
+    }
+}
