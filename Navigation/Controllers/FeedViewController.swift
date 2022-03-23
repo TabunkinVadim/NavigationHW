@@ -8,14 +8,14 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Feed"
         layoutSubviews()
     }
-
+    
     let postsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -23,7 +23,7 @@ class FeedViewController: UIViewController {
         stack.spacing = 10
         return stack
     }()
-
+    
     let postButton1: UIButton = {
         let buttom = UIButton()
         buttom.backgroundColor = .systemGray4
@@ -34,7 +34,7 @@ class FeedViewController: UIViewController {
         buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
         return buttom
     }()
-
+    
     let postButton2: UIButton = {
         let buttom = UIButton()
         buttom.backgroundColor = .systemGray4
@@ -45,11 +45,11 @@ class FeedViewController: UIViewController {
         buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
         return buttom
     }()
-
+    
     @objc func pressFeedButtom(_ sender:Any) {
         navigationController?.pushViewController( PostViewController(), animated: true)
     }
-
+    
     private func layoutSubviews(){
         view.addSubview(postsStack)
         postsStack.translatesAutoresizingMaskIntoConstraints = false

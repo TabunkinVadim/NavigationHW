@@ -16,7 +16,6 @@ class LogInViewController: UIViewController {
         layout()
     }
 
-    //    private let nc = NotificationCenter.default
     private let contentView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -84,17 +83,23 @@ class LogInViewController: UIViewController {
         passwordSet.text = textField.text ?? ""
     }
 
-    let loginButtom: UIButton = {
+    lazy var loginButtom: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
         $0.layer.cornerRadius = 10
+        $0.layer.masksToBounds = true
         $0.setTitle("Log in", for: .normal)
+        $0.addTarget(self, action: #selector(tiuchDown), for: .touchDown)
         $0.addTarget(self, action: #selector(openProfile), for: .touchUpInside)
         return $0
     }(UIButton())
 
-    @objc func openProfile(_ sender:Any) {
+    @objc func tiuchDown() {
+        loginButtom.alpha = 0.8
+    }
+    @objc func openProfile(_ sender:UIButton) {
         navigationController?.pushViewController( ProfileViewController(), animated: true)
+        loginButtom.alpha = 1
     }
 
     private func layout() {
@@ -110,7 +115,6 @@ class LogInViewController: UIViewController {
         ])
 
         loginScrollView.addSubview(contentView)
-        //        view.addSubview(contentView)
 
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: loginScrollView.topAnchor),
@@ -155,6 +159,7 @@ class LogInViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         // подписаться на уведомления
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)

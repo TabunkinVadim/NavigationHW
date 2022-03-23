@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     let profileHeader = ProfileHeaderView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(logOutOfAccountButtom)
         layoutSubviews()
     }
-
+    
     private func layoutSubviews() {
         profileHeader.translatesAutoresizingMaskIntoConstraints = false
         logOutOfAccountButtom.translatesAutoresizingMaskIntoConstraints = false
@@ -35,9 +35,9 @@ class ProfileViewController: UIViewController {
             logOutOfAccountButtom.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             logOutOfAccountButtom.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
-
+        
     }
-
+    
     let logOutOfAccountButtom: UIButton = {
         let buttom = UIButton()
         buttom.setTitle("Выйти", for: .normal)
@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
         buttom.addTarget(self, action: #selector(pressLogOutButtom), for: .touchUpInside)
         return buttom
     }()
-
+    
     @objc func pressLogOutButtom(_ sender:Any) {
         navigationController?.pushViewController( LogInViewController(), animated: true)
     }
