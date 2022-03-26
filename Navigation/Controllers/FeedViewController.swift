@@ -8,22 +8,15 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        title = "Feed"
-        layoutSubviews()
-    }
-    
+
     let postsStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.spacing = 10
-        return stack
-    }()
-    
+          let stack = UIStackView()
+          stack.axis = .vertical
+          stack.distribution = .fillEqually
+          stack.spacing = 10
+          return stack
+      }()
+
     let postButton1: UIButton = {
         let buttom = UIButton()
         buttom.backgroundColor = .systemGray4
@@ -34,25 +27,32 @@ class FeedViewController: UIViewController {
         buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
         return buttom
     }()
-    
-    let postButton2: UIButton = {
-        let buttom = UIButton()
-        buttom.backgroundColor = .systemGray4
-        buttom.layer.cornerRadius = 10
-        buttom.layer.borderWidth = 1
-        buttom.setTitle(newPost.title + " 2", for: .normal)
-        buttom.setTitleColor(.black, for: .normal)
-        buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
-        return buttom
-    }()
-    
+
+       let postButton2: UIButton = {
+           let buttom = UIButton()
+           buttom.backgroundColor = .systemGray4
+           buttom.layer.cornerRadius = 10
+           buttom.layer.borderWidth = 1
+           buttom.setTitle(newPost.title + " 2", for: .normal)
+           buttom.setTitleColor(.black, for: .normal)
+           buttom.addTarget(self, action: #selector(pressFeedButtom), for: .touchUpInside)
+           return buttom
+       }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        title = "Feed"
+        layoutSubviews()
+    }
+
     @objc func pressFeedButtom(_ sender:Any) {
         navigationController?.pushViewController( PostViewController(), animated: true)
     }
     
     private func layoutSubviews(){
         view.addSubview(postsStack)
-        postsStack.translatesAutoresizingMaskIntoConstraints = false
+        postsStack.toAutoLayout()
         NSLayoutConstraint.activate([
             postsStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             postsStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
@@ -64,4 +64,4 @@ class FeedViewController: UIViewController {
     }
 }
 
-let newPost = Post(title: "Новости")
+let newPost = Post(author: "News", image: "", description: "", likes: 10, views: 10, title: "Новости")

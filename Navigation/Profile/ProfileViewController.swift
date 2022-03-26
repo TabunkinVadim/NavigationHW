@@ -6,47 +6,59 @@
 //
 
 import UIKit
-
 class ProfileViewController: UIViewController {
     
-    let profileHeader = ProfileHeaderView()
+    private lazy var tableView: UITableView = {
+        $0.toAutoLayout()
+        $0.dataSource = self
+        $0.delegate = self
+        $0.backgroundColor = .systemGray6
+        $0.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        $0.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: ProfileHeaderView.identifier)
+        return $0
+    }(UITableView(frame: .zero, style: .grouped))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemGray6
+        layout()
         title = "Profile"
     }
     
-    override func viewWillLayoutSubviews() {
-        self.view.addSubview(profileHeader)
-        self.view.addSubview(logOutOfAccountButtom)
-        layoutSubviews()
-    }
-    
-    private func layoutSubviews() {
-        profileHeader.translatesAutoresizingMaskIntoConstraints = false
-        logOutOfAccountButtom.translatesAutoresizingMaskIntoConstraints = false
+    private func layout() {
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            profileHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            profileHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            profileHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            profileHeader.heightAnchor.constraint(equalToConstant: 200),
-            logOutOfAccountButtom.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            logOutOfAccountButtom.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            logOutOfAccountButtom.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
-        
+    }
+}
+
+extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        posts.count
     }
     
-    let logOutOfAccountButtom: UIButton = {
-        let buttom = UIButton()
-        buttom.setTitle("Выйти", for: .normal)
-        buttom.backgroundColor = .link
-        buttom.addTarget(self, action: #selector(pressLogOutButtom), for: .touchUpInside)
-        return buttom
-    }()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier , for: indexPath) as! PostTableViewCell
+        cell.setupCell(model: posts[indexPath.row])
+        return cell
+    }
     
-    @objc func pressLogOutButtom(_ sender:Any) {
-        navigationController?.pushViewController( LogInViewController(), animated: true)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeaderView.identifier)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
     }
 }
