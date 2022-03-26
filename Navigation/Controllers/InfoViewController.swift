@@ -8,7 +8,7 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -22,18 +22,18 @@ class InfoViewController: UIViewController {
         alertButton.layer.borderWidth = 1
         alertButton.addTarget(self, action: #selector(pressAlertButtom), for: .touchUpInside)
         self.view.addSubview(alertButton)
-
+        
         alertButton.translatesAutoresizingMaskIntoConstraints = false
         let bottomAnchor = alertButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
         let leftAnchor = alertButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40)
         let rightAnchor = alertButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40)
-
+        
         NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor])
-
+        
     }
     
-    @IBAction func pressAlertButtom(_ sender:Any) {
-       let pressAlertButtom = UIAlertController(title: "Alert", message: "Внимание", preferredStyle: .alert)
+    @objc func pressAlertButtom(_ sender:Any) {
+        let pressAlertButtom = UIAlertController(title: "Alert", message: "Внимание", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: {_ in print("Отмена")})
         pressAlertButtom.addAction(cancelAction)
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive, handler: {_ in print("Удалить")})
