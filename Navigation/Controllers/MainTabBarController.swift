@@ -20,7 +20,6 @@ class MainTabBarController: UITabBarController {
         let profileViewController = createNavController(viewController: LogInViewController(), itemName: "Profile", itemImage: "person")
         
         viewControllers = [feedViewController, profileViewController]
-        
     }
     
     func createNavController(viewController:UIViewController, itemName: String, itemImage: String) -> UINavigationController {
@@ -33,6 +32,5 @@ class MainTabBarController: UITabBarController {
         navController.tabBarItem = item
         return navController
     }
-    
 }
 

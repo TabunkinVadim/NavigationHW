@@ -29,7 +29,6 @@ class InfoViewController: UIViewController {
         let rightAnchor = alertButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40)
         
         NSLayoutConstraint.activate([bottomAnchor, leftAnchor, rightAnchor])
-        
     }
     
     @objc func pressAlertButtom(_ sender:Any) {

@@ -27,7 +27,6 @@ class PostTableViewCell: UITableViewCell {
         $0.toAutoLayout()
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .black
-
         return $0
     }(UIImageView())
 

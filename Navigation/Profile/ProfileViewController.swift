@@ -13,17 +13,24 @@ class ProfileViewController: UIViewController {
         $0.dataSource = self
         $0.delegate = self
         $0.backgroundColor = .systemGray6
-        $0.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
         $0.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: ProfileHeaderView.identifier)
+        $0.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier)
+        $0.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
         return $0
     }(UITableView(frame: .zero, style: .grouped))
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         layout()
         title = "Profile"
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+
+                self.navigationController?.navigationBar.isHidden = true
+    }
+
     
     private func layout() {
         view.addSubview(tableView)
@@ -40,25 +47,60 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        var numberRows = 0
+        if section == 0 {
+            numberRows = 1
+        } else {
+            numberRows = posts.count
+        }
+        return numberRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier , for: indexPath) as! PostTableViewCell
-        cell.setupCell(model: posts[indexPath.row])
-        return cell
+        if (indexPath.section == 0) {
+            var cell: PhotosTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as! PhotosTableViewCell
+            return cell
+        } else {
+            var cell: PostTableViewCell
+            cell = (tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier , for: indexPath) as! PostTableViewCell)
+            cell.setupCell(model: posts[indexPath.row])
+            return cell
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        2
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeaderView.identifier)
+        var header:UIView? = nil
+        if section == 0 {
+            header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeaderView.identifier)
+        }
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        if section == 0 {
+            return 200
+        } else {
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var autiHeight:CGFloat {
+            UITableView.automaticDimension
+        }
+        return autiHeight
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0{
+        let _:PhotosViewController = {
+            navigationController?.pushViewController($0, animated: true) 
+            return $0
+        }(PhotosViewController())
+        }
     }
 }
+
